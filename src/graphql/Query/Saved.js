@@ -17,11 +17,16 @@ const saved = async (obj, { id }, context) => {
   return saved_book
 }
 
+const savedByUser = async (obj, { userID }, context) => {
+  const saved_book = await Saved.query().where('userID', userID)
+  return saved_book
+}
 
 const resolver = {
   Query: { 
     saveds,
     saved,
+    savedByUser,
    },
 }
 

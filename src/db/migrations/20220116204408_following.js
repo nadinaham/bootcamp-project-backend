@@ -8,12 +8,12 @@ exports.up = async knex => createTableIfNotExists(knex, 'following', table => {
     .defaultTo(knex.raw('uuid_generate_v4()'))
   
   table
-    .uuid('followedUserId')
+    .uuid('followedUserID')
     .notNullable()
     .references('users.id')
   
   table
-    .uuid('followingUserId')
+    .uuid('followingUserID')
     .notNullable()
     .references('users.id')
 

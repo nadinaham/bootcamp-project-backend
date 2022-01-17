@@ -21,16 +21,23 @@ module.exports = gql`
     read_book(id: ID!): Read!
     rec_lists: [Recommended!]!
     rec_list(id: ID!): Recommended!
+    rec_listByUser(userID: String!): [Recommended!]
     saveds: [Saved!]!
     saved(id: ID!): Saved!
+    savedByUser(userID: String!): [Saved!]
     books: [Book!]!
     book(id: ID!): Book!
     following: [Follow!]!
     follow(id: ID!): Follow!
+    followsByFollower(followingUserID: String!): [Follow!]
+    followsByFollowed(followedUserID: String!): [Follow!]
     friend_recs: [FRecommended!]!
     friend_rec(id: ID!): FRecommended!
+    friend_recBySender(senderID: String!): [FRecommended!]
+    friend_recByReceiver(recipientID: String!): [FRecommended!]
     currently_readings: [CReading!]!
     currently_reading(id: ID!): CReading!
+    currently_readingByUser(userID: String!): [CReading!]
   }
 
   type User {

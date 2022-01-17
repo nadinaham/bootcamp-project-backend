@@ -17,11 +17,22 @@ const follow = async (obj, { id }, context) => {
   return fol
 }
 
+const followsByFollower = async (obj, { followingUserID }, context) => {
+  const fol = await Follow.query().where('followingUserID', followingUserID)
+  return fol
+}
+
+const followsByFollowed = async (obj, { followedUserID }, context) => {
+  const fol = await Follow.query().where('followedUserID', followedUserID)
+  return fol
+}
 
 const resolver = {
   Query: { 
     following,
     follow,
+    followsByFollower,
+    followsByFollowed,
    },
 }
 

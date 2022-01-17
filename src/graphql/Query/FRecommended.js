@@ -17,11 +17,22 @@ const friend_rec = async (obj, { id }, context) => {
   return f_rec
 }
 
+const friend_recBySender = async (obj, { senderID }, context) => {
+  const f_rec = await FRecommended.query().where('senderID', senderID)
+  return f_rec
+}
+
+const friend_recByReceiver = async (obj, { recipientID }, context) => {
+  const f_rec = await FRecommended.query().where('recipientID', recipientID)
+  return f_rec
+}
 
 const resolver = {
   Query: { 
     friend_recs,
     friend_rec,
+    friend_recBySender,
+    friend_recByReceiver,
    },
 }
 

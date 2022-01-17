@@ -17,11 +17,17 @@ const rec_list = async (obj, { id }, context) => {
   return rec_list
 }
 
+const rec_listByUser = async (obj, { userID }, context) => {
+  const rec_list = await Recommended.query().where('userID', userID)
+  return rec_list
+}
+
 
 const resolver = {
   Query: { 
     rec_lists,
     rec_list,
+    rec_listByUser
    },
 }
 

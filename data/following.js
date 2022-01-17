@@ -3,8 +3,8 @@ const userData = require('./user')
 
 casual.define('follow', (userID1, userID2) => ({
   id: casual.uuid,
-  followedUserId: userID1,
-  followingUserId: userID2,
+  followedUserID: userID1,
+  followingUserID: userID2,
 }))
 
 const followingData = []
