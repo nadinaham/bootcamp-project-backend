@@ -5,7 +5,6 @@ module.exports = gql`
     login(email: String!, password: String!): AuthReturn!
     register(input: RegisterInput!): AuthReturn!
     addUser(input: AddUser!): User!
-    addBook(input: AddBook!): Book!
     addBooktoRead(input: AddBookList!): Read!
     addBooktoRecs(input: AddBookList!): Recommended!
     addBooktoSaved(input: AddBookList!): Saved!
@@ -25,8 +24,6 @@ module.exports = gql`
     saveds: [Saved!]!
     saved(id: ID!): Saved!
     savedByUser(userID: String!): [Saved!]
-    books: [Book!]!
-    book(id: ID!): Book!
     following: [Follow!]!
     follow(id: ID!): Follow!
     followsByFollower(followingUserID: String!): [Follow!]
@@ -48,29 +45,28 @@ module.exports = gql`
     password: String!
   }
 
-  type Book {
-    id: ID!
-    API_id: String!
-    title: String!
-    author: String!
-  }
-
   type Read {
     id: ID!
     userID: String!
     bookID: String!
+    title: String!
+    author: String!
   }
 
   type Recommended {
     id: ID!
     userID: String!
     bookID: String!
+    title: String!
+    author: String!
   }
 
   type CReading {
     id: ID!
     userID: String!
     bookID: String!
+    title: String!
+    author: String!
   }
 
   type FRecommended {
@@ -78,6 +74,8 @@ module.exports = gql`
     senderID: String!
     recipientID: String!
     bookID: String!
+    title: String!
+    author: String!
     comment: String
   }
 
@@ -85,6 +83,8 @@ module.exports = gql`
     id: ID!
     userID: String!
     bookID: String!
+    title: String!
+    author: String!
   }
 
   type Follow {
@@ -110,15 +110,11 @@ module.exports = gql`
     password: String!
   }
 
-  input AddBook {
-    API_id: String!
-    title: String!
-    author: String!
-  }
-
   input AddBookList {
     userID: String!
     bookID: String!
+    title: String!
+    author: String!
   }
 
   input AddFollowPair {
@@ -130,11 +126,15 @@ module.exports = gql`
     senderID: String!
     recipientID: String!
     bookID: String!
+    title: String!
+    author: String!
     comment: String
   }
-  
+
   input AddCurrReading {
     userID: String!
     bookID: String!
+    title: String!
+    author: String!
   }
 `

@@ -25,7 +25,7 @@ class CReading extends BaseModel {
         join: {
           from: 'currently_reading.bookID',
           to: 'books.API_id',
-        }
+        },
       },
     }
   }

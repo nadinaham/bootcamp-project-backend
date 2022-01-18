@@ -4,7 +4,6 @@ const {
   hashPassword, comparePassword, createToken,
 } = require('../../lib/auth')
 
-
 const login = async (obj, { email, password }) => {
   const user = await User.query().findOne({
     email,
@@ -17,7 +16,6 @@ const login = async (obj, { email, password }) => {
   if (!validPassword) {
     throw new UserInputError('Invalid email or password')
   }
-
 
   // If successful login, set authentication information
   const payload = {

@@ -7,6 +7,8 @@ const addFriendRec = async (obj, { input }, context) => {
       senderID: input.senderID,
       recipientID: input.recipientID,
       bookID: input.bookID,
+      title: input.title,
+      author: input.author,
       comment: input.comment,
     })
   } 

@@ -6,12 +6,12 @@ exports.up = async knex => createTableIfNotExists(knex, 'following', table => {
     .notNullable()
     .primary()
     .defaultTo(knex.raw('uuid_generate_v4()'))
-  
+
   table
     .uuid('followedUserID')
     .notNullable()
     .references('users.id')
-  
+
   table
     .uuid('followingUserID')
     .notNullable()

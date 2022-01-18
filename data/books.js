@@ -7,7 +7,6 @@ casual.define('book', () => ({
   author: casual.full_name,
 }))
 
-
 const bookData = []
 
 for (let i = 0; i < 20; ++i) {

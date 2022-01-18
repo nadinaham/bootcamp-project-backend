@@ -6,12 +6,12 @@ exports.up = async knex => createTableIfNotExists(knex, 'friend_rec', table => {
     .notNullable()
     .primary()
     .defaultTo(knex.raw('uuid_generate_v4()'))
-  
+
   table
     .uuid('senderID')
     .notNullable()
     .references('users.id')
-  
+
   table
     .uuid('recipientID')
     .notNullable()
@@ -20,9 +20,16 @@ exports.up = async knex => createTableIfNotExists(knex, 'friend_rec', table => {
   table
     .string('bookID')
     .notNullable()
-    .references('books.API_id')
 
-    table
+  table
+    .string('title')
+    .notNullable()
+
+  table
+    .string('author')
+    .notNullable()
+
+  table
     .text('comment')
     .notNullable()
     .defaultTo('')

@@ -6,6 +6,8 @@ const addCurrReading = async (obj, { input }, context) => {
     return CReading.query().insert({
       userID: input.userID,
       bookID: input.bookID,
+      title: input.title,
+      author: input.author,
     })
   } 
   catch (e)

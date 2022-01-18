@@ -6,16 +6,23 @@ exports.up = async knex => createTableIfNotExists(knex, 'read_books', table => {
     .notNullable()
     .primary()
     .defaultTo(knex.raw('uuid_generate_v4()'))
-  
+
   table
     .uuid('userID')
     .notNullable()
     .references('users.id')
-  
+
   table
     .string('bookID')
     .notNullable()
-    .references('books.API_id')
+
+  table
+    .string('title')
+    .notNullable()
+
+  table
+    .string('author')
+    .notNullable()
 
   table
     .boolean('liked')

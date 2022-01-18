@@ -10,11 +10,11 @@ exports.up = async knex => createTableIfNotExists(knex, 'users', table => {
   table
     .string('firstName')
     .notNullable()
-  
+
   table
     .string('lastName')
     .notNullable()
-  
+
   table
     .string('email')
     .unique()

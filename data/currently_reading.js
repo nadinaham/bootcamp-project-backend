@@ -1,19 +1,19 @@
 const casual = require('casual')
 const userData = require('./user')
-const bookData = require('./books')
 
-casual.define('currently_reading', (userID, bookID) => ({
+casual.define('currently_reading', userID => ({
   id: casual.uuid,
   userID,
-  bookID,
+  bookID: casual.string,
+  title: casual.string,
+  author: casual.string,
 }))
 
 const currentlyReadData = []
 
 for (let i = 0; i < 20; ++i) {
   const userID = casual.random_element(userData).id
-  const bookID = casual.random_element(bookData).API_id
-  currentlyReadData.push(casual.currently_reading(userID, bookID))
+  currentlyReadData.push(casual.currently_reading(userID))
 }
 
 module.exports = currentlyReadData

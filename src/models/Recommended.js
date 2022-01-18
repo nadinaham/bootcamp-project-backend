@@ -9,7 +9,7 @@ class Recommended extends BaseModel {
   static get relationMappings() {
     const User = require('./User')
     const Book = require('./Book')
-    
+
     return {
       recommended_user: {
         relation: HasManyRelation,
@@ -25,7 +25,7 @@ class Recommended extends BaseModel {
         join: {
           from: 'rec_list.bookID',
           to: 'books.API_id',
-        }
+        },
       },
     }
   }

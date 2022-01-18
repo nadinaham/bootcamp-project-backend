@@ -17,7 +17,7 @@ class FRecommended extends BaseModel {
         join: {
           from: 'friend_rec.senderID',
           to: 'users.id',
-        }
+        },
       },
       friendRecReceived_user: {
         relation: HasManyRelation,
@@ -25,7 +25,7 @@ class FRecommended extends BaseModel {
         join: {
           from: 'friend_rec.recipientID',
           to: 'users.id',
-        }
+        },
       },
       frec_books: {
         relations: HasManyRelation,
@@ -33,7 +33,7 @@ class FRecommended extends BaseModel {
         join: {
           from: 'friend_rec.bookID',
           to: 'books.API_id',
-        }
+        },
       },
     }
   }

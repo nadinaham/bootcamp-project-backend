@@ -6,6 +6,8 @@ const addBooktoSaved = async (obj, { input }, context) => {
     return Saved.query().insert({
       userID: input.userID,
       bookID: input.bookID,
+      title: input.title,
+      author: input.author,
     })
   } 
   catch (e)
