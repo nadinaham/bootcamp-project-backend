@@ -17,6 +17,7 @@ module.exports = gql`
     users: [User!]!
     user(id: ID!): User!
     read_books: [Read!]!
+    user_read_books(userID: ID!): [Read!]!
     read_book(id: ID!): Read!
     rec_lists: [Recommended!]!
     rec_list(id: ID!): Recommended!

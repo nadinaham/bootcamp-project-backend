@@ -12,6 +12,18 @@ const read_books = async () => {
   }
 }
 
+const user_read_books = async (obj, { userID }, context) => {
+  try 
+  {
+    const read = await Read.query().where('userID', userID)
+    return read
+  } 
+  catch (e)
+  {
+    throw new Error('Failed to return Recommended Books')
+  }
+}
+
 const read_book = async (obj, { id }, context) => {
   const read = await Read.query().findOne('id', id)
   return read
@@ -21,6 +33,7 @@ const read_book = async (obj, { id }, context) => {
 const resolver = {
   Query: { 
     read_books,
+    user_read_books,
     read_book,
    },
 }
