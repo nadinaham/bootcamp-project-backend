@@ -16,10 +16,19 @@ const addCurrReading = async (obj, { input }, context) => {
   }
 }
 
-const resolver = {
-  Mutation: { 
-    addCurrReading,
+const deleteCurrReading = async (obj, { input }, context) => {
+  try {
+    return CReading.query().delete().where('userID', input.userID).where('bookID', input.bookID)
+  } catch (e) {
+    throw new Error('Failed to delete Current Book')
   }
+}
+
+const resolver = {
+  Mutation: {
+    addCurrReading,
+    deleteCurrReading,
+  },
 }
 
 module.exports = resolver

@@ -8,19 +8,34 @@ const read_books = async () => {
   } 
   catch (e)
   {
-    throw new Error('Failed to return Recommended Books')
+    throw new Error('Failed to return Read Books')
   }
 }
 
 const user_read_books = async (obj, { userID }, context) => {
-  try 
-  {
+  try {
     const read = await Read.query().where('userID', userID)
     return read
-  } 
-  catch (e)
-  {
-    throw new Error('Failed to return Recommended Books')
+  } catch (e) {
+    throw new Error('Failed to return Read Books')
+  }
+}
+
+const user_liked_books = async (obj, { userID }, context) => {
+  try {
+    const read = await Read.query().where('userID', userID).where('liked', true)
+    return read
+  } catch (e) {
+    throw new Error('Failed to return Liked Books')
+  }
+}
+
+const user_disliked_books = async (obj, { userID }, context) => {
+  try {
+    const read = await Read.query().where('userID', userID).where('liked', false)
+    return read
+  } catch (e) {
+    throw new Error('Failed to return Disliked Books')
   }
 }
 
@@ -29,13 +44,14 @@ const read_book = async (obj, { id }, context) => {
   return read
 }
 
-
 const resolver = {
-  Query: { 
+  Query: {
     read_books,
     user_read_books,
+    user_liked_books,
+    user_disliked_books,
     read_book,
-   },
+  },
 }
 
 module.exports = resolver
