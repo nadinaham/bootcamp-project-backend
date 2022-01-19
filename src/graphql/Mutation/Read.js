@@ -3,12 +3,13 @@ const Read = require('../../models/Read')
 const addBooktoRead = async (obj, { input }, context) => {
   try 
   {
-    return Read.query().insert({
+    const a = await Read.query().insert({
       userID: input.userID,
       bookID: input.bookID,
       title: input.title,
       author: input.author,
     })
+    return a
   } 
   catch (e)
   {
@@ -35,7 +36,8 @@ const addDislikedBooktoRead = async (obj, { input }, context) => {
 
 const deleteBookfromRead = async (obj, { input }, context) => {
   try {
-    return Read.query().delete().where('userID', input.userID).where('bookID', input.bookID)
+    await Read.query().delete().where('userID', input.userID).where('bookID', input.bookID)
+    return true
   } catch (e) {
     throw new Error('Failed to delete Read Book')
   }

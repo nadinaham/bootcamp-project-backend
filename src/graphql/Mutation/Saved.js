@@ -18,7 +18,8 @@ const addBooktoSaved = async (obj, { input }, context) => {
 
 const deleteBookfromSaved = async (obj, { input }, context) => {
   try {
-    return Saved.query().delete().where('userID', input.userID).where('bookID', input.bookID)
+    await Saved.query().delete().where('userID', input.userID).where('bookID', input.bookID)
+    return true
   } catch (e) {
     throw new Error('Failed to delete Saved Book')
   }

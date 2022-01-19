@@ -18,7 +18,8 @@ const addCurrReading = async (obj, { input }, context) => {
 
 const deleteCurrReading = async (obj, { input }, context) => {
   try {
-    return CReading.query().delete().where('userID', input.userID).where('bookID', input.bookID)
+    await CReading.query().delete().where('userID', input.userID).where('bookID', input.bookID)
+    return true
   } catch (e) {
     throw new Error('Failed to delete Current Book')
   }

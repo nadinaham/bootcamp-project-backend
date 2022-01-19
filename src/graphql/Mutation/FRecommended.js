@@ -20,7 +20,8 @@ const addFriendRec = async (obj, { input }, context) => {
 
 const deleteFriendRec = async (obj, { id }, context) => {
   try {
-    return FRecommended.query().delete().where('id', id)
+    const a = await FRecommended.query().delete().where('id', id)
+    return true
   } catch (e) {
     throw new Error('Failed to delete Friend Rec')
   }

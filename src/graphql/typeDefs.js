@@ -7,15 +7,15 @@ module.exports = gql`
     addUser(input: AddUser!): User!
     addBooktoRead(input: AddBookList!): Read!
     addDislikedBooktoRead(input: AddBookList!): Read!
-    deleteBookfromRead(input: DeleteBookList!): Read
+    deleteBookfromRead(input: DeleteBookList!): Boolean
     addBooktoRecs(input: AddBookList!): Recommended!
     addBooktoSaved(input: AddBookList!): Saved!
-    deleteBookfromSaved(input: DeleteBookList!): Saved
+    deleteBookfromSaved(input: DeleteBookList!): Boolean
     addFollow(input: AddFollowPair!): Follow!
     addFriendRec(input: AddFriendRecBook!): FRecommended!
-    deleteFriendRec(id: ID!): FRecommended
+    deleteFriendRec(id: ID!): Boolean
     addCurrReading(input: AddCurrReading!): CReading!
-    deleteCurrReading(input: DeleteBookList!): CReading
+    deleteCurrReading(input: DeleteBookList!): Boolean
   }
 
   type Query {
