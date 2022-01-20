@@ -6,11 +6,16 @@ module.exports = gql`
     register(input: RegisterInput!): AuthReturn!
     addUser(input: AddUser!): User!
     addBooktoRead(input: AddBookList!): Read!
+    addDislikedBooktoRead(input: AddBookList!): Read!
+    deleteBookfromRead(input: DeleteBookList!): Boolean
     addBooktoRecs(input: AddBookList!): Recommended!
     addBooktoSaved(input: AddBookList!): Saved!
+    deleteBookfromSaved(input: DeleteBookList!): Boolean
     addFollow(input: AddFollowPair!): Follow!
     addFriendRec(input: AddFriendRecBook!): FRecommended!
+    deleteFriendRec(id: ID!): Boolean
     addCurrReading(input: AddCurrReading!): CReading!
+    deleteCurrReading(input: DeleteBookList!): Boolean
   }
 
   type Query {
@@ -18,6 +23,9 @@ module.exports = gql`
     user(id: ID!): User!
     userByEmail(email: String!): User!
     read_books: [Read!]!
+    user_read_books(userID: ID!): [Read!]!
+    user_liked_books(userID: ID!): [Read!]!
+    user_disliked_books(userID: ID!): [Read!]!
     read_book(id: ID!): Read!
     read_bookByUser(userID: String!): [Read!]
     rec_lists: [Recommended!]!
@@ -117,6 +125,11 @@ module.exports = gql`
     bookID: String!
     title: String!
     author: String!
+  }
+
+  input DeleteBookList {
+    userID: String!
+    bookID: String!
   }
 
   input AddFollowPair {
