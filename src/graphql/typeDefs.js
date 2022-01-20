@@ -16,8 +16,10 @@ module.exports = gql`
   type Query {
     users: [User!]!
     user(id: ID!): User!
+    userByEmail(email: String!): User!
     read_books: [Read!]!
     read_book(id: ID!): Read!
+    read_bookByUser(userID: String!): [Read!]
     rec_lists: [Recommended!]!
     rec_list(id: ID!): Recommended!
     rec_listByUser(userID: String!): [Recommended!]

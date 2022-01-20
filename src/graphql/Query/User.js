@@ -17,7 +17,10 @@ const user = async (obj, { id }, context) => {
   return user
 }
 
-
+const userByEmail = async (obj, {email}, context) => {
+  const user = await User.query().findOne('email', email)
+  return user
+}
 const resolver = {
   Query: { 
     users,
