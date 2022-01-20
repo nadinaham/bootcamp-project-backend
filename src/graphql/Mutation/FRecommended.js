@@ -18,10 +18,20 @@ const addFriendRec = async (obj, { input }, context) => {
   }
 }
 
-const resolver = {
-  Mutation: { 
-    addFriendRec,
+const deleteFriendRec = async (obj, { id }, context) => {
+  try {
+    const a = await FRecommended.query().delete().where('id', id)
+    return true
+  } catch (e) {
+    throw new Error('Failed to delete Friend Rec')
   }
+}
+
+const resolver = {
+  Mutation: {
+    addFriendRec,
+    deleteFriendRec,
+  },
 }
 
 module.exports = resolver
