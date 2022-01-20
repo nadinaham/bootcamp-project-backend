@@ -109,6 +109,8 @@ module.exports = gql`
   }
 
   input RegisterInput {
+    firstName: String!
+    lastName: String!
     email: String!
     password: String!
   }
