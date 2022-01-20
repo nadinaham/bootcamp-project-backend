@@ -25,6 +25,7 @@ const resolver = {
   Query: { 
     users,
     user,
+    userByEmail
    },
 }
 
