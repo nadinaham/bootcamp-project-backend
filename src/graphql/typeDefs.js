@@ -135,8 +135,8 @@ module.exports = gql`
   }
 
   input AddFollowPair {
-    followedUserId: String!
-    followingUserId: String!
+    followedUserID: String!
+    followingUserID: String!
   }
 
   input AddFriendRecBook {
