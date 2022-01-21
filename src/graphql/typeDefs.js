@@ -12,6 +12,7 @@ module.exports = gql`
     addBooktoSaved(input: AddBookList!): Saved!
     deleteBookfromSaved(input: DeleteBookList!): Boolean
     addFollow(input: AddFollowPair!): Follow!
+    deleteFollow(input: AddFollowPair!): Boolean
     addFriendRec(input: AddFriendRecBook!): FRecommended!
     deleteFriendRec(id: ID!): Boolean
     addCurrReading(input: AddCurrReading!): CReading!
